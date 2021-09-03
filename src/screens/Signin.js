@@ -49,6 +49,13 @@ const Signin = () => {
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
           }}
         >
+          {user.errorMessage ? (
+            <div class="alert alert-danger">
+              <strong>{user.errorMessage}</strong>
+            </div>
+          ) : (
+            ""
+          )}
           <h1 className="my-4 text-center font-weight-bold display-4">
             Sign In
           </h1>
