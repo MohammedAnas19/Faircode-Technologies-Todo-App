@@ -41,32 +41,56 @@ const Signup = () => {
   return (
     <Formik
       initialValues={{
-        mobileNumber: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
+        mobileNumber: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
       }}
       validationSchema={validate}
-      onSubmit={values => {
+      onSubmit={(values) => {
         dispatch(register(values));
         history.push("");
       }}
     >
-      {formik => (
-        <div className="form-container">
-          <h1 className="my-4 font-weight-bold display-4">Sign Up</h1>
+      {(formik) => (
+        <div
+          className="form-container border p-4 h-auto mt-5"
+          style={{
+            width: "500px",
+            boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+          }}
+        >
+          <h1 className="mt-1 text-center font-weight-bold display-4">
+            Sign Up
+          </h1>
           <Form>
             <TextField label="Mobile Number" name="mobileNumber" type="text" />
             <TextField label="Email" name="email" type="email" />
             <TextField label="Password" name="password" type="password" />
-            <TextField label="Confirm Password" name="confirmPassword" type="password" />
-            <button className="btn btn-dark mt-3" type="submit">Register</button>
-            <button className="btn btn-danger mt-3 ml-3" type="reset">Reset</button>
+            <TextField
+              label="Confirm Password"
+              name="confirmPassword"
+              type="password"
+            />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <button className="btn btn-dark mt-3" type="submit">
+                Register
+              </button>
+              <button
+                className="btn btn-outline-dark mt-3"
+                onClick={() => history.push("signin")}
+              >
+                Login
+              </button>
+              <button className="btn btn-danger mt-3" type="reset">
+                Reset
+              </button>
+            </div>
           </Form>
         </div>
       )}
     </Formik>
-  )
+  );
 }
 
 

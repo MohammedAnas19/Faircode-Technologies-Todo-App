@@ -26,10 +26,10 @@ input.form-control:focus {
 }
 
 nav {
-  background: #009ffd;
+  border-bottom: 5px solid #f4f6f7;
 }
 nav .nav-link {
-  color: #ffffff !important;
+  color: #000000 !important;
   font-size: 1.3rem;
   text-transform: capitalize;
 }

@@ -32,30 +32,49 @@ const Signin = () => {
   return (
     <Formik
       initialValues={{
-        email: '',
-        password: '',
-        
+        email: "",
+        password: "",
       }}
       validationSchema={validate}
-      onSubmit={values => {
+      onSubmit={(values) => {
         dispatch(login(values));
-        history.push("")
+        history.push("");
       }}
     >
-      {formik => (
-        <div className="form-container">
-          <h1 className="my-4 font-weight-bold display-4">Sign In</h1>
+      {(formik) => (
+        <div
+          className="form-container border p-4 h-auto mt-5 "
+          style={{
+            width: "500px",
+            boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+          }}
+        >
+          <h1 className="my-4 text-center font-weight-bold display-4">
+            Sign In
+          </h1>
           <Form>
             <TextField label="Email" name="email" type="email" />
-            <TextField label="password" name="password" type="password" />
-            <button className="btn btn-dark mt-3" type="submit">Login</button>
-            <button className="btn btn-danger mt-3 ml-3" type="reset">Reset</button>
+            <TextField label="Password" name="password" type="password" />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <button className="btn btn-dark mt-3" type="submit">
+                Login
+              </button>
+
+              <button
+                className="btn btn-outline-dark mt-3"
+                onClick={() => history.push("signup")}
+              >
+                Register
+              </button>
+              <button className="btn btn-danger mt-3" type="reset">
+                Reset
+              </button>
+            </div>
           </Form>
         </div>
       )}
     </Formik>
-
-  )
+  );
 }
 
 
