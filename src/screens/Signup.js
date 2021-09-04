@@ -1,42 +1,36 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
-import { TextField } from '../components/TextField';
-import { useDispatch, useSelector } from 'react-redux';
-import { isUserLoggedIn, register} from '../actions';
-import { Redirect } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { TextField } from "../components/TextField";
+import { useDispatch, useSelector } from "react-redux";
+import { isUserLoggedIn, register } from "../actions";
 import { useHistory } from "react-router-dom";
-import { useEffect } from 'react';
 
 const Signup = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth);
   const history = useHistory();
 
-
   const validate = Yup.object({
-
     mobileNumber: Yup.string()
-      .max(10, 'Must be valid Mobile Number')
-      .min(10, 'Must be valid Mobile Number')
-      .required('Required'),
-    email: Yup.string()
-      .email('Email is invalid')
-      .required('Email is required'),
+      .max(10, "Must be valid Mobile Number")
+      .min(10, "Must be valid Mobile Number")
+      .required("Required"),
+    email: Yup.string().email("Email is invalid").required("Email is required"),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 charaters')
-      .required('Password is required'),
+      .min(6, "Password must be at least 6 charaters")
+      .required("Password is required"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Password must match')
-      .required('Confirm password is required'),
-  })
+      .oneOf([Yup.ref("password"), null], "Password must match")
+      .required("Confirm password is required"),
+  });
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(isUserLoggedIn());
     if (user.authenticated) {
-      history.push("")
+      history.push("");
     }
-  })
+  });
 
   return (
     <Formik
@@ -91,7 +85,6 @@ const Signup = () => {
       )}
     </Formik>
   );
-}
-
+};
 
 export default Signup;

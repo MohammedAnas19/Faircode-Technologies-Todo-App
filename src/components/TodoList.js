@@ -16,7 +16,7 @@ function TodoList() {
                 <i
                   onClick={() => dispatch(completeTodo(d.id))}
                   className="fas fa-check mr-2"
-                  style={{ color: "green" }}
+                  style={{ color: "green", cursor: "pointer" }}
                 ></i>
               </li>
             );

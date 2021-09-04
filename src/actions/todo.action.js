@@ -8,15 +8,7 @@ export const addTodo = (todo) => {
     });
   };
 };
-// export const getTodo = () => {
-//     return async (dispatch) => {
-//       dispatch({
-//         type: todoConstants.ADD_TODO_REQUEST,
-//         payload: {
-//         },
-//       });
-//     };
-//   };
+
 export const completeTodo = (id) => {
   return async (dispatch) => {
     dispatch({
@@ -27,12 +19,3 @@ export const completeTodo = (id) => {
     });
   };
 };
-// export const getCompletedTodo = () => {
-//     return async (dispatch) => {
-//         dispatch({
-//         type: todoConstants.COMPLETE_TODO_REQUEST,
-//         payload: {
-//         },
-//         });
-//     };
-// };
