@@ -13,7 +13,6 @@ import { isUserLoggedIn } from './actions';
 
 
 function App() {
-  
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.auth);
@@ -22,16 +21,17 @@ function App() {
     if (!user.authenticated) {
       dispatch(isUserLoggedIn());
     }
-  }, [user.authenticated]);
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
-        <Switch>
-            <Route exact path="/signin" component={Signin} />         
-            <Route path="/signup" component={Signup} />  
-            <PrivateRoute path="/completed" component={Completed} />
-            <PrivateRoute path="/" component={Todo} />
-         </Switch>    
+      <Switch>
+        <Route exact path="/signin" component={Signin} />
+        <Route path="/signup" component={Signup} />
+        <PrivateRoute path="/completed" component={Completed} />
+        <PrivateRoute path="/" component={Todo} />
+      </Switch>
     </div>
   );
 }

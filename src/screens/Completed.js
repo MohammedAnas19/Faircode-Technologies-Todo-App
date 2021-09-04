@@ -23,6 +23,7 @@ function Completed() {
               </li>
             );
           }
+          return true;
         })}
       </ul>
     </div>

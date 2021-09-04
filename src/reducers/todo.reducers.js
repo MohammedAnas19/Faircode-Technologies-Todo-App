@@ -18,11 +18,14 @@ export default (state=initState,action)=>{
             break;
         
         case todoConstants.COMPLETE_TODO_REQUEST:
-            const index=state.findIndex((i)=>i.id==action.payload.id)
+            const index=state.findIndex((i)=>i.id===action.payload.id)
             const newState=[...state]
             newState[index].completed=true
             state=[...newState]
             break;
+
+        default:
+            return state;
     }
     return state;
 }

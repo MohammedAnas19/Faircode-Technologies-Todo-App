@@ -21,6 +21,7 @@ function TodoList() {
               </li>
             );
           }
+          return true;
         })}
       </ul>
     </div>
